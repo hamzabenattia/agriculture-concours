@@ -1,0 +1,27 @@
+
+<table bgcolor="#fafafa" style=" width: 100%!important; height: 100%; background-color: #fafafa; padding: 20px; font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, 'Lucida Grande', sans-serif;  font-size: 100%; line-height: 1.6;">
+    <tr>
+    <td></td>
+    <td bgcolor="#FFFFFF" style="border: 1px solid #eeeeee; background-color: #ffffff; border-radius:5px; display:block!important; max-width:600px!important; margin:0 auto!important; clear:both!important;"><div style="padding:20px; max-width:600px; margin:0 auto; display:block;">
+    <table style="width: 100%;">
+    <tr>
+    <h1 style="font-weight: 200; font-size: 16px; margin: 20px 0 30px 0; color: #333333;">Cher/Cher(e), {{ candidate.user.firstname }}</h1>
+    <h1 style="font-weight: 200; font-size: 16px; margin: 20px 0 30px 0; color: #333333;">
+    Nous avons le plaisir de vous informer que votre candidature pour le  <a href="{{url('app_concours_show',{id:candidate.concours.id})}}"> {{candidate.concours.title}}</a> a été acceptée. Votre dossier a été examiné avec attention, et nous sommes ravis de vous compter parmi les candidats sélectionnés.
+    </h1>
+    <h2 style="font-weight: 200; font-size: 16px; margin: 20px 0; color: #333333;">
+Les détails concernant les prochaines étapes du concours vous seront communiqués dans les prochains jours. Nous vous remercions pour votre intérêt et votre engagement envers le secteur agricole.
+    </h2>
+    <h2 style="font-weight: 200; font-size: 16px; margin: 20px 0; color: #333333;">
+Nous vous souhaitons bonne chance et restons à votre disposition pour toute question.
+ </h2>
+   
+    <h2 style="font-weight: 200; font-size: 16px; margin: 20px 0; color: #333333;"> Cordialement </h2>
+    <h2 style="font-weight: 200; font-size: 16px; margin: 20px 0; color: #333333;"> Ministère de l'Agriculture</h2>
+    <p style="text-align: center; display: block; padding-top:20px; font-weight: bold; margin-top:30px; color: #666666; border-top:1px solid #dddddd;"><a href="{{url('app_home')}}">Ministère de l'Agriculture</a> </p></td>
+    </tr>
+    </table>
+    </div></td>
+    <td></td>
+    </tr>
+    </table>

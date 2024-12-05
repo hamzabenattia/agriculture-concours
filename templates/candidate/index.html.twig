@@ -1,0 +1,102 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Concours{% endblock %}
+
+{% block body %}
+
+
+<div class="mt-10 mx-8">
+
+<div class="container mx-auto max-w-2xl p-8 bg-white rounded-lg  mb-5 mt-10">
+    <h2 class="text-2xl font-bold mb-6 text-center">
+        Candidature au  <span class="text-primary">{{concours.title}} </span>
+    </h2>
+
+
+    {% if concours.type == "Interne" and app.user.roles[0] == 'ROLE_USER' %}
+
+     <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+        <span class="block sm:inline">Vous n'avez pas l'autorisation de participer à ce concours</span>
+        
+    </div>
+        
+
+    {% elseif userAlreadyApplied %}
+
+    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 items-center rounded relative" role="alert">
+        <span class="block sm:inline">Vous avez déjà postulé à ce concours.</span>
+        <p>
+            Vous pouvez consulter votre candidature dans votre <a href="{{path('app_user_candidate_list')}}" class="text-primary">Espace Candidat</a> 
+        </p>
+    </div>
+    
+    {% else %}
+
+    <p class="text-gray-700  mb-3" >
+        Merci de bien vouloir remplir le formulaire ci-dessous pour participer au concours.
+        <p class="text-gray-700"> Tous les champs sont obligatoires. </p>
+    </p>
+    
+   
+
+
+    
+
+    {{form_start(form,{'attr':{'novalidate':'novalidate'}})}}
+
+    {{ form_row(form.firstName,{
+        'attr': {
+            'placeholder': 'Prénom',  
+            'value': app.user.firstName  
+        }
+    }) }}
+
+     {{ form_row(form.lastName,{
+        'attr': {
+            'placeholder': 'Nom',  
+            'value': app.user.lastName  
+        }
+    }) }}
+
+     {{ form_row(form.email,{
+        'attr': {
+            'placeholder': 'Email',  
+            'value': app.user.email  
+        }
+    }) }}
+
+       {{ form_row(form.phoneNumber) }}
+
+     {{ form_row(form.ville) }}
+
+     {{ form_row(form.adresse) }}
+
+
+
+
+
+
+       {{ form_row(form.cvFile) }}
+
+
+
+
+
+
+
+
+  
+
+    {{form_end(form)}}
+      
+
+    
+    
+    {% endif %}
+    
+    
+    
+
+</div>
+
+{% endblock %}

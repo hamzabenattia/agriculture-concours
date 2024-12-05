@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="{{ asset('images/logo.png') }}">
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
+
+
+
+        {% endblock %}
+
+        {% block javascripts %}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+              <script src="https://cdn.tailwindcss.com"></script>
+
+        {% endblock %}
+    </head>
+    <body>
+    		{% block navbar %}
+                    {% include 'components/_navbar.html.twig' %}
+            {% endblock %}
+
+
+
+        
+
+ {% block body %}{% endblock %}
+
+            {% block footer %}
+            		{% include 'components/_footer.html.twig' %}
+           {% endblock %}        
+
+    </body>
+    
+</html>

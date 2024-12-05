@@ -1,0 +1,20 @@
+
+<table bgcolor="#fafafa" style=" width: 100%!important; height: 100%; background-color: #fafafa; padding: 20px; font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, 'Lucida Grande', sans-serif;  font-size: 100%; line-height: 1.6;">
+    <tr>
+    <td></td>
+    <td bgcolor="#FFFFFF" style="border: 1px solid #eeeeee; background-color: #ffffff; border-radius:5px; display:block!important; max-width:600px!important; margin:0 auto!important; clear:both!important;"><div style="padding:20px; max-width:600px; margin:0 auto; display:block;">
+    <table style="width: 100%;">
+    <tr>
+    <h1 style="font-weight: 200; font-size: 16px; margin: 20px 0 30px 0; color: #333333;">Bonjour {{ candidate.user.firstName }}</h1>
+    <h1 style="font-weight: 200; font-size: 16px; margin: 20px 0 30px 0; color: #333333;">Votre candidature a bien été enregistrée pour <a href="{{url('app_concours_show',{id:concours.id})}}"> {{concours.title}}</a></h1>
+    <h2 style="font-weight: 200; font-size: 16px; margin: 20px 0; color: #333333;"> Vous pouvvez gérer votre candidature depuis votre espace candidat <a href="{{url('app_user_candidate_list')}}">Espace candidat</a></h2>
+    <h2 style="font-weight: 200; font-size: 16px; margin: 20px 0; color: #333333;"> Nous vous remercions pour votre confiance </h2>
+        <h2 style="font-weight: 200; font-size: 16px; margin: 20px 0; color: #333333;"> Cordialement </h2>
+
+    <p style="text-align: center; display: block; padding-top:20px; font-weight: bold; margin-top:30px; color: #666666; border-top:1px solid #dddddd;"><a href="{{url('app_home')}}">Ministère de l'Agriculture </a> </p></td>
+    </tr>
+    </table>
+    </div></td>
+    <td></td>
+    </tr>
+    </table>

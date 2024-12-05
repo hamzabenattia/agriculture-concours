@@ -1,0 +1,88 @@
+<div {{ attributes }}>
+
+  
+  
+  
+  <div class="container mx-auto py-8">
+
+  <div class="flex flex-col md:flex-row justify-between items-center mb-8 ">
+    
+  <p class="font-semibold">
+      Nombre total des concours : {{ computed.concours.getTotalItemCount }}
+    </p>
+  
+        <input data-model="debounce(100)|title" class="form-input" placeholder="Recherche.." >
+
+
+ <div class="flex justify-around gap-2">
+    <select name="type" id="type" data-model="on(change)|type" class="mt-1 form-select">
+      <option value="">Tous les types</option>
+      <option value="Interne">Interne</option>
+      <option value="Externe">Externe</option>
+    </select>
+
+     <select name="type" id="type" data-model="on(change)|status" class="mt-1 form-select">
+      <option value="">Status</option>
+      <option value="En cours">En Cours</option>
+      <option value="Terminé">Terminé</option>
+    </select>
+
+    </div>
+
+
+  
+</div>
+    {% if computed.concours|length > 0  %}
+
+    <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {% for concour in computed.concours %}
+      <a href="{{path('app_concours_show', {'id': concour.id})}}">
+      <li class="bg-white hover:bg-gray-100 rounded-lg shadow-md p-6  min-h-80 max-h-80">
+        <h2 class="text-xl font-semibold mb-4 ">{{concour.title}}</h2>
+        <div class="flex flex-col gap-2">
+       
+        <div class="flex justify-start items-center">
+        <p class="text-gray-900 dark:text-gray-200 font-semibold leading-tight">Type de concours: </p>
+          {% if concour.type == 'Interne' %}
+                <p class="text-primary dark:text-gray-200 ml-2">Interne</p>
+                            {% else %}
+                <p class="text-green-500 dark:text-gray-200 ml-2">Externe</p>
+
+                            {% endif %}
+        </div>
+
+  <div class="flex "> 
+  <p> 
+   {{ concour.description|striptags|slice(0,150)~ '...' }}
+ 
+  </p>
+  </div>
+  
+  <div class="flex justify-end gap-2">
+    <span class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">Publier le: {{concour.createdAt | date('d-m-Y')}}</span>
+
+         {% if concour.status == 'En cours' %}
+                                <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">En cours</span>
+                            {% else %}
+                                <span class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">Terminé</span>
+                            {% endif %}
+
+  </div>
+  </div>
+    </li>
+  </a>
+      {% endfor %}
+      
+    </ul>
+    {% else %}
+    <p class="text-center font-semibold">Aucun concours disponible pour le moment
+    </p>
+    {% endif %}
+  </div>
+      
+  <div class="my-5 flex justify-center items-center">
+    {{ knp_pagination_render(computed.concours) }}
+  </div>
+        </div>
+
+</div>

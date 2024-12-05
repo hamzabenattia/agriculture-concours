@@ -1,0 +1,66 @@
+
+
+
+{% extends 'base.html.twig' %}
+{% block title %}Register {% endblock %}
+{% form_theme registrationForm 'tailwind_2_layout.html.twig' %}
+
+
+{% block body %}
+
+{% block navbar %}
+	
+{% endblock %}
+
+<div class="flex justify-between w-full h-full">
+
+
+	<div class="flex-1">
+			<img src="{{ asset('images/login_image.png') }}" class="w-full" alt="login-image" />
+	</div>
+
+
+<div class="flex-1 p-10">
+<h1 class="text-2xl font-black text-primary">S'inscrire </h1>
+					<p class="mt-2 mb-5 text-base leading-tight text-gray-600">Créez un compte pour pouvoir postuler et gérer vos concours.</p>
+			{{ form(registrationForm, {'method': 'POST'}) }}
+              <p class="text-gray-800 text-sm text-center mt-6">Vous avez déjà un compte? <a href="{{path('app_login')}}" class="text-primary font-semibold hover:underline ml-1 whitespace-nowrap">Se connecter</a></p>
+
+	</div>
+
+</div>
+
+
+
+
+
+
+
+
+	{# <div class="flex h-screen w-full items-center justify-center">
+		<div class="w-full  overflow-hidden rounded-lg bg-white shadow-lg sm:flex">
+			<div class="m-2 w-full rounded-2xl bg-gray-400 bg-cover bg-center text-white sm:w-2/5">
+			<img src="{{ asset('images/login_image.png') }}" class="w-full h-full	 object-cover" alt="login-image" />
+			</div>
+			<div class="w-full sm:w-3/5">
+				<div class="p-8">
+					<h1 class="text-3xl font-black text-primary">S'inscrire
+					</h1>
+					<p class="mt-2 mb-5 text-base leading-tight text-gray-600">Créez un compte pour pouvoir postuler et gérer vos concours.</p>
+			{{ form(registrationForm, {'method': 'POST'}) }}
+			
+					<div class="mt-4 text-center">
+						<p class="text-sm text-gray-600">Vous avez déjà un compte?
+							<a href="{{path('app_login')}}" class="font-bold text-primary no-underline hover:text-blue-400">Se connecter                            </a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> #}
+
+	{% block footer %}
+		
+	{% endblock %}
+
+{% endblock %}
